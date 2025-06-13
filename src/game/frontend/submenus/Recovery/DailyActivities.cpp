@@ -19,6 +19,7 @@ namespace YimMenu::Submenus
 		auto streetDealerTab = std::make_shared<CollapsingHeaderItem>("Street Dealers");
 		auto lsTagsTab = std::make_shared<CollapsingHeaderItem>("LS Tags");
 		auto madrazoHitsTab = std::make_shared<CollapsingHeaderItem>("Madrazo Hits");
+		auto wildlifePhotography = std::make_shared<CollapsingHeaderItem>("Shoot Animals Photography");
 
 		dailyActivities->AddItem(std::make_shared<CommandItem>("setallactivitiescompleted"_J));
 		dailyActivities->AddItem(std::make_shared<CommandItem>("resetallactivities"_J));
@@ -71,6 +72,10 @@ namespace YimMenu::Submenus
 		madrazoHitsTab->AddItem(std::make_shared<CommandItem>("tptomadrazohit"_J));
 		madrazoHitsTab->AddItem(std::make_shared<CommandItem>("tptomadrazohittarget"_J));
 
+		wildlifePhotography->AddItem(std::make_shared<ListCommandItem>("animalindex"_J));
+		wildlifePhotography->AddItem(std::make_shared<CommandItem>("spawnanimal"_J));
+		wildlifePhotography->AddItem(std::make_shared<CommandItem>("photographanimal"_J));
+
 		dailyActivities->AddItem(std::move(challengesTab));
 		dailyActivities->AddItem(std::move(hiddenCacheTab));
 		dailyActivities->AddItem(std::move(treasureChestTab));
@@ -84,6 +89,7 @@ namespace YimMenu::Submenus
 		dailyActivities->AddItem(std::move(streetDealerTab));
 		dailyActivities->AddItem(std::move(lsTagsTab));
 		dailyActivities->AddItem(std::move(madrazoHitsTab));
+		dailyActivities->AddItem(std::move(wildlifePhotography));
 		return dailyActivities;
 	}
 }
