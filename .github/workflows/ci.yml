@@ -20,7 +20,7 @@ jobs:
           find src \( -name "*.hpp" -o -name "*.h" -o -name "*.cpp" \) -exec clang-format-21 --Werror --dry-run --verbose {} +
 
   ci:
-    runs-on: [ self-hosted, Windows ]
+    runs-on: windows-latest
     name: CI
     steps:
       - uses: actions/checkout@v4
