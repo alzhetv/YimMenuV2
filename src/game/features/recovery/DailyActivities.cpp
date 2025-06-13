@@ -77,11 +77,9 @@ namespace YimMenu::Features
 	    "animalindex",
 	    "Animal",
 	    "Selected Animal",
-	    {{0, "Animal 1"}, {1, "Animal 2"}, {2, "Animal 3"}}
-	};
+	    {{0, "Animal 1"}, {1, "Animal 2"}, {2, "Animal 3"}}};
 
-	static constexpr auto wildlifePhotographyAnimalHashes = std::to_array({
-	    "A_C_Boar"_J,
+	static constexpr auto wildlifePhotographyAnimalHashes = std::to_array({"A_C_Boar"_J,
 	    "A_C_Cat_01"_J,
 	    "A_C_Cow"_J,
 	    "A_C_Coyote"_J,
@@ -100,8 +98,7 @@ namespace YimMenu::Features
 	    "A_C_Cormorant"_J,
 	    "A_C_Crow"_J,
 	    "A_C_Hen"_J,
-	    "A_C_Seagull"_J
-	});
+	    "A_C_Seagull"_J});
 
 	static void SetAllDailyActivitiesCompleted(bool completed)
 	{
@@ -999,7 +996,7 @@ namespace YimMenu::Features
 
 				ScriptGlobal(2708543).At(544).As<SCR_BITSET<uint64_t>*>()->Set(6);
 				*ScriptGlobal(2708543).At(547).As<joaat_t*>() = wildlifePhotographyAnimalHashes[index];
-				*ScriptGlobal(2708543).At(548).As<int*>()     = *Pointers.GameTimer - 1; // bypass 2 sec delay
+				*ScriptGlobal(2708543).At(548).As<int*>() = *Pointers.GameTimer - 1; // bypass 2 sec delay
 			}
 			else
 			{
@@ -1050,7 +1047,7 @@ namespace YimMenu::Features
 
 	static TeleportToMadrazoHit _TeleportToMadrazoHit{"tptomadrazohit", "Teleport to Madrazo Hit", "Teleports to Madrazo Hit."};
 	static TeleportToMadrazoHitTarget _TeleportToMadrazoHitTarget{"tptomadrazohittarget", "Teleport to Madrazo Hit Target", "Teleports to Madrazo Hit Target."};
-	
+
 	static SpawnAnimal _SpawnAnimal{"spawnanimal", "Spawn Animal", "Spawns the selected animal."};
 	static PhotographAnimal _PhotographAnimal{"photographanimal", "Photograph Animal", "Photographs the selected animal."};
 }
