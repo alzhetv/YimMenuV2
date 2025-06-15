@@ -1,3 +1,9 @@
+# Experimental version of YimMenuV2
+
+This version contains every PR that can be added to the YimMenu before any official action is done by official maintainers. Still learning how to use GitHub on some sides, sorry for spamming some PR I did not even wanted to PR/publish. Also doing most of the requests with more than 35°C in my room, which give me headaches.
+
+Anyway; out of this, everything here is up to date until I will start to work in 15 days.
+
 # YimMenuV2
 
 Experimental menu for GTA 5: Enhanced
