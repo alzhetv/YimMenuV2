@@ -18,7 +18,9 @@ namespace YimMenu::Submenus
 		auto businessGroup = std::make_shared<Group>("General");
 		auto casinoTools = std::make_shared<Group>("Tools");
 		auto casinoSlots = std::make_shared<Group>("Slot Machines");
-		auto casinoWheel = std::make_shared<Group>("Lucky Wheel");
+		// To come in next feature update
+		//auto casinoBlackJack = std::make_shared<Group>("Blackjack");
+		//auto casinoRoulette = std::make_shared<Group>("Roulette");
 
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("playallmissionssolo"_J));
 		generalGroup->AddItem(std::make_shared<CommandItem>("forcelaunchheist"_J));
@@ -38,15 +40,10 @@ namespace YimMenu::Submenus
 
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
 
-		casinoWheel->AddItem(std::make_shared<ListCommandItem>("luckywheelprize"_J));
-		casinoWheel->AddItem(std::make_shared<CommandItem>("applyluckywheelprize"_J));
-
-
 		missions->AddItem(generalGroup);
 		businesses->AddItem(businessGroup);
 		casino->AddItem(casinoTools);
 		casino->AddItem(casinoSlots);
-		casino->AddItem(casinoWheel);
 
 		AddCategory(std::move(missions));
 		AddCategory(std::move(businesses));

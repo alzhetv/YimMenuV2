@@ -109,52 +109,9 @@ namespace YimMenu::Features
 			}
 		}
 	};
-	enum class eLuckyWheelPrize
-	{
-		PODIUM_VEHICLE = 18,
-		MYSTERY = 11,
-		CASH = 19,
-		CHIPS = 15,
-		RP = 17,
-		DISCOUNT = 4,
-		CLOTHING = 8
-	};
 
-	static std::vector<std::pair<int, const char*>> luckyWheelPrizes = {
-	    {static_cast<int>(eLuckyWheelPrize::PODIUM_VEHICLE), "Podium Vehicle"},
-	    {static_cast<int>(eLuckyWheelPrize::MYSTERY), "Mystery Prize"},
-	    {static_cast<int>(eLuckyWheelPrize::CASH), "$50,000 Cash"},
-	    {static_cast<int>(eLuckyWheelPrize::CHIPS), "25,000 Chips"},
-	    {static_cast<int>(eLuckyWheelPrize::RP), "15,000 RP"},
-	    {static_cast<int>(eLuckyWheelPrize::DISCOUNT), "Discount"},
-	    {static_cast<int>(eLuckyWheelPrize::CLOTHING), "Clothing"}};
-
-	static ListCommand _SelectedLuckyWheelPrize{"luckywheelprize", "Wheel Prize", "Select prize for Lucky Wheel", luckyWheelPrizes, 0};
-
-	class ApplyLuckyWheelPrize : public Command
-	{
-		using Command::Command;
-
-		virtual void OnCall() override
-		{
-			if (Scripts::SafeToModifyFreemodeBroadcastGlobals() && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH("casino_lucky_wheel"_J))
-			{
-				Player host = NETWORK::NETWORK_GET_HOST_OF_SCRIPT("casino_lucky_wheel", -1, 0);
-				if (host.GetId() != Self::GetPlayer().GetId())
-					Scripts::ForceScriptHost(Scripts::FindScriptThread("casino_lucky_wheel"_J));
-
-				constexpr int prize_offset = 280 + 14;
-				constexpr int state_offset = 280 + 45;
-
-				int selectedPrize = _SelectedLuckyWheelPrize.GetState();
-				*ScriptLocal("casino_lucky_wheel"_J, prize_offset).As<int*>() = selectedPrize;
-				*ScriptLocal("casino_lucky_wheel"_J, state_offset).As<int*>() = 11;
-			}
-		}
-	};
-
-	static ApplyLuckyWheelPrize _ApplyLuckyWheelPrize{"applyluckywheelprize", "Set Prize", "Sets the wheel to land on the selected Lucky Wheel prize"};
-	static BypassCasinoBans _BypassCasinoBans{"bypasscasinobans", "Bypass Casino Ban", "Bypasses the Casino Ban and cooldowns for everything (wheel/slots/tables/cashier)"};
+	// To come in next feature update
+	//static CasinoAutoSpin _CasinoAutoSpin{"casinoautospin", "Auto Spin Slots", "Automatically spins slot machine when seated."};
+	static BypassCasinoBans _BypassCasinoBans{"bypasscasinobans", "Bypass Casino Ban", "SEVERELY RISKY! Bypasses the Casino Ban and cooldowns for everything (wheel/slots/tables/cashier)"};
 	static CasinoManipulateRigSlotMachines _CasinoManipulateRigSlotMachines{"casinomanipulaterigslotmachines", "Manipulate Rig Slot Machines", "Lets you win the Rig Slot Machines every time"};
-
 }
